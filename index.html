@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Металлургия Казахстана | 9 класс</title>
+  <title>§ 14. Центры добычи и переработки минеральных ресурсов</title>
 
   <style>
     :root {
       --bg-dark: #090d16;
-      --card-bg: rgba(18, 25, 44, 0.88);
-      --card-border: rgba(255, 255, 255, 0.12);
+      --card-bg: rgba(18, 25, 44, 0.9);
+      --card-border: rgba(255, 255, 255, 0.1);
       --accent-cyan: #38bdf8;
       --accent-indigo: #818cf8;
       --text-main: #f1f5f9;
@@ -33,23 +33,23 @@
         radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
       background-attachment: fixed;
-      line-height: 1.5;
-      padding: 25px 15px;
+      line-height: 1.6;
+      padding: 30px 15px;
     }
 
     .container { 
-      max-width: 680px; 
+      max-width: 800px; 
       margin: 0 auto; 
     }
     
     header { 
       text-align: center; 
-      margin-bottom: 20px; 
+      margin-bottom: 25px; 
     }
 
     .badge {
       display: inline-block;
-      padding: 4px 12px;
+      padding: 4px 14px;
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--accent-cyan);
@@ -74,16 +74,33 @@
     .card {
       background: var(--card-bg); 
       border: 1px solid var(--card-border); 
-      padding: 22px 20px; 
+      padding: 24px; 
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      margin-bottom: 22px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
     }
 
     .name-input {
       width: 100%; 
-      max-width: 300px; 
+      max-width: 320px; 
       padding: 12px 16px; 
-      margin: 15px 0;
+      margin: 10px 0 18px;
       border-radius: 10px; 
       border: 1px solid var(--card-border);
       background: rgba(255, 255, 255, 0.08); 
@@ -93,108 +110,129 @@
       -webkit-user-select: text;
       user-select: text;
     }
-
-    .quiz-header {
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center;
-      margin-bottom: 10px; 
-      color: var(--text-muted); 
-      font-size: 0.9rem;
+    .name-input:focus {
+      border-color: var(--accent-cyan);
+      background: rgba(255, 255, 255, 0.12);
     }
 
-    #timer-display { 
-      font-weight: 700; 
-      color: var(--accent-cyan); 
-      font-size: 1.1rem; 
+    /* Таблица Задания 1 */
+    .matching-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
     }
 
-    .progress-bar-container {
-      width: 100%; 
-      height: 6px; 
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px; 
-      margin-bottom: 16px; 
-      overflow: hidden;
+    .matching-table th {
+      text-align: left;
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0 12px 6px;
     }
 
-    .progress-bar-fill { 
-      height: 100%; 
-      width: 10%; 
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo)); 
-      transition: width 0.3s ease; 
+    .matching-table td {
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
     }
 
-    .task-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 5px;
-      background: rgba(129, 140, 248, 0.2);
-      color: var(--accent-indigo);
-      font-weight: 600;
-      margin-bottom: 8px;
+    .matching-table tr td:first-child {
+      border-radius: 10px 0 0 10px;
+      border-right: none;
+      font-weight: 500;
+      color: #fff;
+      width: 45%;
+      font-size: 0.92rem;
     }
 
-    #quiz-question { 
-      font-size: 1.05rem; 
-      margin-bottom: 15px; 
-      font-weight: 600; 
-      color: #fff; 
+    .matching-table tr td:last-child {
+      border-radius: 0 10px 10px 0;
+      border-left: none;
+      width: 55%;
     }
 
-    .quiz-option {
-      display: block; 
-      width: 100%; 
-      text-align: left; 
-      padding: 12px 14px; 
-      margin: 8px 0;
-      background: rgba(255, 255, 255, 0.05); 
+    /* Селекты и выпадающие списки */
+    .custom-select {
+      width: 100%;
+      padding: 10px 12px;
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
       color: var(--text-main);
-      border: 1px solid rgba(255, 255, 255, 0.1); 
+      font-size: 0.88rem;
+      outline: none;
+      cursor: pointer;
+    }
+    .custom-select:focus {
+      border-color: var(--accent-cyan);
+    }
+
+    /* Задание 2: текст с пропусками */
+    .fill-gap-list {
+      list-style: none;
+    }
+
+    .fill-gap-item {
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
       border-radius: 10px;
-      cursor: pointer; 
-      font-size: 0.92rem; 
-      line-height: 1.3;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #e2e8f0;
     }
 
-    .correct { 
-      background: rgba(34, 197, 94, 0.25) !important; 
-      border-color: #22c55e !important; 
-      color: #86efac !important; 
-      font-weight: 600; 
-    }
-
-    .wrong { 
-      background: rgba(239, 68, 68, 0.25) !important; 
-      border-color: #ef4444 !important; 
-      color: #fca5a5 !important; 
-      font-weight: 600; 
-    }
-
-    #quiz-status { 
-      margin-top: 14px; 
-      font-size: 0.9rem; 
-      padding: 10px 14px; 
-      border-radius: 8px; 
-      display: none; 
-    }
-
-    .quiz-btn {
-      margin-top: 15px; 
-      padding: 12px 20px;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
-      color: #090d16; 
-      border: none; 
-      border-radius: 8px; 
-      font-size: 0.95rem; 
-      font-weight: 700; 
+    .inline-select {
+      display: inline-block;
+      margin: 0 4px;
+      padding: 6px 10px;
+      background: #111827;
+      border: 1px solid var(--accent-cyan);
+      border-radius: 6px;
+      color: var(--accent-cyan);
+      font-size: 0.92rem;
+      font-weight: 600;
+      outline: none;
       cursor: pointer;
     }
 
-    .result-box { 
-      text-align: center; 
-      padding: 10px 0; 
+    .btn-submit {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      margin: 25px auto 10px;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+      color: #090d16;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-submit:hover {
+      opacity: 0.9;
+    }
+
+    /* Статусы и итоги */
+    .result-box {
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    .correct-field {
+      border-color: #22c55e !important;
+      background: rgba(34, 197, 94, 0.15) !important;
+      color: #86efac !important;
+    }
+
+    .wrong-field {
+      border-color: #ef4444 !important;
+      background: rgba(239, 68, 68, 0.15) !important;
+      color: #fca5a5 !important;
     }
   </style>
 </head>
@@ -202,220 +240,270 @@
 
   <div class="container">
     <header>
-      <div class="badge">9 класс • География</div>
+      <div class="badge">9 класс • Экономическая география</div>
       <h1>Металлургия Казахстана</h1>
-      <p class="subtitle">§ 14. Центры добычи и переработки</p>
+      <p class="subtitle">§ 14. Центры добычи и переработки минеральных ресурсов</p>
     </header>
 
+    <!-- Форма для ввода данных ученика -->
+    <div class="card" id="student-card">
+      <div class="card-title">👤 Данные ученика</div>
+      <p class="card-desc">Введите имя и фамилию для сохранения результатов работы.</p>
+      <input type="text" id="student-name" class="name-input" placeholder="Имя и Фамилия" autocomplete="off">
+    </div>
+
+    <!-- Задание 1 -->
     <div class="card">
-      
-      <!-- Стартовый экран -->
-      <div id="start-screen" style="text-align: center; padding: 10px 0;">
-        <h3 style="font-size: 1.25rem; margin-bottom: 10px; color: #fff;">Практическая работа</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 6px;">10 вопросов по черной и цветной металлургии.</p>
-        <p style="color: #ef4444; font-size: 0.85rem; margin-bottom: 15px;">На каждый вопрос даётся ровно 15 секунд!</p>
-        
-        <input type="text" id="student-name" class="name-input" placeholder="Имя и Фамилия" autocomplete="off">
-        <br>
-        <button class="quiz-btn" onclick="startQuiz()">Начать тест ⏱️</button>
-      </div>
+      <div class="card-title">⚙️ ЗАДАНИЕ 1. «Стадии черной металлургии» (5 баллов)</div>
+      <p class="card-desc">Соотнесите предприятие или цех с его технологической функцией или производимой продукцией.</p>
 
-      <!-- Контейнер вопросов -->
-      <div id="quiz-container" style="display: none;">
-        <div class="quiz-header">
-          <span id="question-number">Вопрос 1 из 10</span>
-          <span id="timer-display">⏳ 15 сек</span>
-          <span id="score-counter">Баллы: 0</span>
-        </div>
-        <div class="progress-bar-container"><div id="progress-bar" class="progress-bar-fill"></div></div>
-        
-        <div id="task-badge" class="task-tag"></div>
-        <div id="quiz-question"></div>
-        <div id="quiz-options"></div>
-        <div id="quiz-status"></div>
-        
-        <button id="next-btn" class="quiz-btn" style="display: none;" onclick="nextQuestion()">Следующий вопрос →</button>
-      </div>
+      <table class="matching-table">
+        <thead>
+          <tr>
+            <th>Предприятие / Цех</th>
+            <th>Процесс / Продукция</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Горно-обогатительный комбинат (ГОК)</td>
+            <td>
+              <select class="custom-select task1-select" data-correct="В">
+                <option value="">-- Выберите определение --</option>
+                <option value="А">А. Плавка стали</option>
+                <option value="Б">Б. Работает исключительно на металлоломе</option>
+                <option value="В">В. Получение чистого концентрата (метод флотации)</option>
+                <option value="Г">Г. Выпуск готовой продукции (листовой, трубный прокат)</option>
+                <option value="Д">Д. Плавка чугуна</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>2. Доменный цех</td>
+            <td>
+              <select class="custom-select task1-select" data-correct="Д">
+                <option value="">-- Выберите определение --</option>
+                <option value="А">А. Плавка стали</option>
+                <option value="Б">Б. Работает исключительно на металлоломе</option>
+                <option value="В">В. Получение чистого концентрата (метод флотации)</option>
+                <option value="Г">Г. Выпуск готовой продукции (листовой, трубный прокат)</option>
+                <option value="Д">Д. Плавка чугуна</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>3. Сталелитейный цех</td>
+            <td>
+              <select class="custom-select task1-select" data-correct="А">
+                <option value="">-- Выберите определение --</option>
+                <option value="А">А. Плавка стали</option>
+                <option value="Б">Б. Работает исключительно на металлоломе</option>
+                <option value="В">В. Получение чистого концентрата (метод флотации)</option>
+                <option value="Г">Г. Выпуск готовой продукции (листовой, трубный прокат)</option>
+                <option value="Д">Д. Плавка чугуна</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>4. Прокатный цех</td>
+            <td>
+              <select class="custom-select task1-select" data-correct="Г">
+                <option value="">-- Выберите определение --</option>
+                <option value="А">А. Плавка стали</option>
+                <option value="Б">Б. Работает исключительно на металлоломе</option>
+                <option value="В">В. Получение чистого концентрата (метод флотации)</option>
+                <option value="Г">Г. Выпуск готовой продукции (листовой, трубный прокат)</option>
+                <option value="Д">Д. Плавка чугуна</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>5. Завод передельного цикла</td>
+            <td>
+              <select class="custom-select task1-select" data-correct="Б">
+                <option value="">-- Выберите определение --</option>
+                <option value="А">А. Плавка стали</option>
+                <option value="Б">Б. Работает исключительно на металлоломе</option>
+                <option value="В">В. Получение чистого концентрата (метод флотации)</option>
+                <option value="Г">Г. Выпуск готовой продукции (листовой, трубный прокат)</option>
+                <option value="Д">Д. Плавка чугуна</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <!-- Экран финиша -->
-      <div id="quiz-result" class="result-box" style="display: none;"></div>
+    <!-- Задание 2 -->
+    <div class="card">
+      <div class="card-title">🗺️ ЗАДАНИЕ 2. «География цветных металлов Казахстана» (5 баллов)</div>
+      <p class="card-desc">Нажмите на выпадающие пропуски в тексте и выберите правильный географический объект или термин.</p>
+
+      <ul class="fill-gap-list">
+        <li class="fill-gap-item">
+          1. Главным районом полиметаллической промышленности (свинец, цинк) в Казахстане является 
+          <select class="inline-select task2-select" data-correct="Рудный">
+            <option value="">[выберите район]</option>
+            <option value="Рудный">Рудный</option>
+            <option value="Южный">Южный</option>
+            <option value="Монгольский">Монгольский</option>
+            <option value="Казахский">Казахский</option>
+          </select> 
+          Алтай.
+        </li>
+
+        <li class="fill-gap-item">
+          2. Крупнейшие месторождения меди сосредоточены в Центральном Казахстане, среди них — Жезказганское, Саяк и 
+          <select class="inline-select task2-select" data-correct="Конырат">
+            <option value="">[выберите месторождение]</option>
+            <option value="Конырат">Конырат</option>
+            <option value="Лисаковское">Лисаковское</option>
+            <option value="Соколовское">Соколовское</option>
+            <option value="Каратауское">Каратауское</option>
+          </select>.
+        </li>
+
+        <li class="fill-gap-item">
+          3. Свинцовый комбинат, перерабатывающий руду из Каратауского хребта, находится в городе 
+          <select class="inline-select task2-select" data-correct="Шымкент">
+            <option value="">[выберите город]</option>
+            <option value="Шымкент">Шымкент</option>
+            <option value="Темиртау">Темиртау</option>
+            <option value="Павлодар">Павлодар</option>
+            <option value="Актобе">Актобе</option>
+          </select>.
+        </li>
+
+        <li class="fill-gap-item">
+          4. Заводы по выплавке легких цветных металлов (алюминий, титан) при размещении всегда тяготеют к источникам дешевой 
+          <select class="inline-select task2-select" data-correct="электроэнергии">
+            <option value="">[выберите фактор]</option>
+            <option value="электроэнергии">электроэнергии</option>
+            <option value="рабочей силы">рабочей силы</option>
+            <option value="потребителя">потребителя</option>
+            <option value="водных ресурсов">водных ресурсов</option>
+          </select>.
+        </li>
+
+        <li class="fill-gap-item">
+          5. Завод по получению глинозема (сырья для алюминия) находится в городе 
+          <select class="inline-select task2-select" data-correct="Павлодар">
+            <option value="">[выберите город]</option>
+            <option value="Павлодар">Павлодар</option>
+            <option value="Усть-Каменогорск">Усть-Каменогорск</option>
+            <option value="Балхаш">Балхаш</option>
+            <option value="Костанай">Костанай</option>
+          </select>.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Кнопка проверки -->
+    <button class="btn-submit" id="submit-btn" onclick="checkAllAnswers()">Проверить и отправить результаты 📨</button>
+
+    <!-- Итоговая карточка -->
+    <div class="card result-box" id="result-card" style="display: none;">
+      <h3 id="res-title" style="font-size: 1.4rem; color: #fff; margin-bottom: 8px;">Результаты работы</h3>
+      <p id="res-student" style="color: #fff; font-size: 1.1rem; margin-bottom: 4px;"></p>
+      <p id="res-score" style="font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan); margin: 6px 0;"></p>
+      <p id="res-grade" style="color: #cbd5e1; font-weight: 600; margin-bottom: 15px;"></p>
+      <div id="send-status" style="padding: 10px; border-radius: 8px; font-size: 0.9rem;"></div>
     </div>
   </div>
 
   <script>
     const formspreeLink = "https://formspree.io/f/xyeewanz";
 
-    const rawQuestions = [
-      { section: "Задание 1: Черная металлургия", q: "Какова главная функция Горно-обогатительного комбината (ГОК)?", options: ["Получение чистого концентрата (метод флотации)", "Плавка чугуна", "Плавка стали", "Выпуск готового проката"], correct: 0, explanation: "ГОК обеспечивает получение концентрата методом флотации и обогащения сырой руды." },
-      { section: "Задание 1: Черная металлургия", q: "Каков основной технологический процесс Доменного цеха?", options: ["Плавка чугуна", "Плавка стали", "Получение концентрата", "Выпуск профильного проката"], correct: 0, explanation: "В доменных печах выплавляют первичный чугун из обогащенной руды." },
-      { section: "Задание 1: Черная металлургия", q: "Какова ключевая функция Сталелитейного цеха на комбинате?", options: ["Плавка стали", "Плавка чугуна", "Дробление и обогащение руды", "Холодная прокатка листов"], correct: 0, explanation: "Сталелитейный цех перерабатывает жидкий чугун и шихту в высококачественную сталь." },
-      { section: "Задание 1: Черная металлургия", q: "Какую функцию выполняет Прокатный цех металлургического завода?", options: ["Выпуск готовой продукции (листовой, трубный прокат)", "Выплавка первичного чугуна", "Флотация рудного сырья", "Переработка металлолома"], correct: 0, explanation: "Прокатные станы изготавливают готовую продукцию: листы, балки, рельсы и трубы." },
-      { section: "Задание 1: Черная металлургия", q: "В чём заключается специфика работы завода передельного цикла?", options: ["Работает исключительно на металлоломе", "Осуществляет полный цикл от руды до проката", "Занимается только добычей коксующегося угля", "Производит исключительно ферросплавы"], correct: 0, explanation: "Передельная металлургия не имеет доменного производства и плавит сталь из вторичного лома." },
-      { section: "Задание 2: Цветная металлургия", q: "Главным районом полиметаллической промышленности (свинец, цинк) в Казахстане является:", options: ["Рудный Алтай", "Центральный Казахстан", "Мугоджары", "Мангистау"], correct: 0, explanation: "Рудный Алтай (Восточный Казахстан) — крупнейшая полиметаллическая база страны." },
-      { section: "Задание 2: Цветная металлургия", q: "Крупнейшие месторождения меди сосредоточены в Центральном Казахстане, среди них — Жезказганское, Саяк и:", options: ["Конырат", "Соколовско-Сарбайское", "Лисаковское", "Каратау"], correct: 0, explanation: "Коныратское месторождение вместе с Жезказганом и Саяком составляет основу медного пояса." },
-      { section: "Задание 2: Цветная металлургия", q: "Свинцовый комбинат, перерабатывающий руду из Каратауского хребта, находится в городе:", options: ["Шымкент", "Темиртау", "Павлодар", "Актобе"], correct: 0, explanation: "Шымкентский свинцовый завод исторически перерабатывал полиметаллы хребта Каратау." },
-      { section: "Задание 2: Цветная металлургия", q: "Заводы по выплавке легких цветных металлов (алюминий, титан) при размещении всегда тяготеют к источникам:", options: ["Дешевой электроэнергии", "Дешевой рабочей силы", "Потребителя продукции", "Крупных лесных массивов"], correct: 0, explanation: "Выплавка легких металлов крайне энергоемка (до 21 000 кВт·ч на 1 т алюминия)." },
-      { section: "Задание 2: Цветная металлургия", q: "Завод по получению глинозема (сырья для производства алюминия) находится в городе:", options: ["Павлодар", "Усть-Каменогорск", "Балхаш", "Костанай"], correct: 0, explanation: "Павлодарский алюминиевый завод производит глинозем из бокситов для электролизного производства." }
-    ];
-
-    let activeQuestions = [];
-    let currentQuestionIndex = 0, score = 0, studentName = "", timerInterval, timeLeft = 15;
-
-    function shuffle(array) {
-      const arr = [...array];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function prepareQuestions() {
-      const shuffledQuestions = shuffle(rawQuestions);
-      return shuffledQuestions.map(item => {
-        const correctAnswerText = item.options[item.correct];
-        const shuffledOptions = shuffle(item.options);
-        return {
-          section: item.section,
-          q: item.q,
-          options: shuffledOptions,
-          correct: shuffledOptions.indexOf(correctAnswerText),
-          explanation: item.explanation
-        };
-      });
-    }
-
-    function startQuiz() {
+    function checkAllAnswers() {
       const nameInput = document.getElementById('student-name').value.trim();
-      if (!nameInput) { alert("Пожалуйста, введите ваше имя и фамилию!"); return; }
-      studentName = nameInput;
-
-      activeQuestions = prepareQuestions();
-      document.getElementById('start-screen').style.display = 'none';
-      document.getElementById('quiz-container').style.display = 'block';
-      currentQuestionIndex = 0; score = 0;
-      renderQuestion();
-    }
-
-    function renderQuestion() {
-      const qData = activeQuestions[currentQuestionIndex];
-      document.getElementById('question-number').textContent = `Вопрос ${currentQuestionIndex + 1} из ${activeQuestions.length}`;
-      document.getElementById('score-counter').textContent = `Баллы: ${score}`;
-      document.getElementById('progress-bar').style.width = `${((currentQuestionIndex + 1) / activeQuestions.length) * 100}%`;
-      
-      document.getElementById('task-badge').textContent = qData.section;
-      document.getElementById('quiz-question').textContent = qData.q;
-      
-      const optionsContainer = document.getElementById('quiz-options');
-      optionsContainer.innerHTML = '';
-      document.getElementById('quiz-status').style.display = 'none';
-      document.getElementById('next-btn').style.display = 'none';
-
-      qData.options.forEach((optText, index) => {
-        const btn = document.createElement('button');
-        btn.className = 'quiz-option'; btn.textContent = optText;
-        btn.onclick = () => selectOption(btn, index);
-        optionsContainer.appendChild(btn);
-      });
-      startTimer();
-    }
-
-    function startTimer() {
-      timeLeft = 15;
-      const timerDisplay = document.getElementById('timer-display');
-      timerDisplay.textContent = `⏳ ${timeLeft} сек`;
-      timerDisplay.style.color = "var(--accent-cyan)";
-      
-      clearInterval(timerInterval);
-      timerInterval = setInterval(() => {
-        timeLeft--;
-        timerDisplay.textContent = `⏳ ${timeLeft} сек`;
-        if (timeLeft <= 5) timerDisplay.style.color = "#ef4444";
-        if (timeLeft <= 0) { clearInterval(timerInterval); autoSkipQuestion(); }
-      }, 1000);
-    }
-
-    function autoSkipQuestion() {
-      currentQuestionIndex++;
-      currentQuestionIndex < activeQuestions.length ? renderQuestion() : showResults();
-    }
-
-    function selectOption(button, selectedIndex) {
-      clearInterval(timerInterval);
-      const qData = activeQuestions[currentQuestionIndex];
-      const buttons = document.querySelectorAll('.quiz-option');
-      const status = document.getElementById('quiz-status');
-      const nextBtn = document.getElementById('next-btn');
-
-      buttons.forEach(btn => btn.disabled = true);
-      status.style.display = 'block';
-
-      if (selectedIndex === qData.correct) {
-        button.classList.add('correct'); score++;
-        document.getElementById('score-counter').textContent = `Баллы: ${score}`;
-        status.innerHTML = `✅ <b>Верно!</b> ${qData.explanation}`;
-        status.style.background = "rgba(34, 197, 94, 0.15)"; status.style.color = "#86efac";
-      } else {
-        button.classList.add('wrong'); buttons[qData.correct].classList.add('correct');
-        status.innerHTML = `❌ <b>Неверно.</b> ${qData.explanation}`;
-        status.style.background = "rgba(239, 68, 68, 0.15)"; status.style.color = "#fca5a5";
+      if (!nameInput) {
+        alert("Пожалуйста, укажите ваши имя и фамилию в начале страницы!");
+        document.getElementById('student-name').focus();
+        return;
       }
 
-      nextBtn.textContent = currentQuestionIndex < activeQuestions.length - 1 ? "Следующий вопрос →" : "Завершить работу 🏁";
-      nextBtn.style.display = 'inline-block';
-    }
+      let score = 0;
+      const task1Selects = document.querySelectorAll('.task1-select');
+      const task2Selects = document.querySelectorAll('.task2-select');
 
-    function nextQuestion() {
-      currentQuestionIndex++;
-      currentQuestionIndex < activeQuestions.length ? renderQuestion() : showResults();
-    }
+      // Проверка Задания 1 (5 баллов)
+      task1Selects.forEach(select => {
+        select.disabled = true;
+        if (select.value === select.dataset.correct) {
+          score++;
+          select.classList.add('correct-field');
+        } else {
+          select.classList.add('wrong-field');
+        }
+      });
 
-    function showResults() {
-      clearInterval(timerInterval);
-      document.getElementById('quiz-container').style.display = 'none';
-      const resultBox = document.getElementById('quiz-result');
-      resultBox.style.display = 'block';
+      // Проверка Задания 2 (5 баллов)
+      task2Selects.forEach(select => {
+        select.disabled = true;
+        if (select.value === select.dataset.correct) {
+          score++;
+          select.classList.add('correct-field');
+        } else {
+          select.classList.add('wrong-field');
+        }
+      });
 
-      let grade = score >= 9 ? "Отлично (9–10 баллов)" : (score >= 7 ? "Хорошо (7–8 баллов)" : (score >= 5 ? "Удовлетворительно (5–6)" : "Требуется доработка (< 5)"));
+      // Шкала оценивания по КСП
+      let grade = "";
+      if (score >= 9) {
+        grade = "«Отлично» (9–10 баллов)";
+      } else if (score >= 7) {
+        grade = "«Хорошо» (7–8 баллов)";
+      } else if (score >= 5) {
+        grade = "«Удовлетворительно» (5–6 баллов)";
+      } else {
+        grade = "«Неудовлетворительно» (< 5 баллов)";
+      }
 
-      resultBox.innerHTML = `
-        <h4 style="font-size: 1.5rem; margin-bottom: 8px; color: #fff;">Работа завершена!</h4>
-        <p style="color: #fff; font-size: 1.15rem; margin-bottom: 4px;">Ученик: <b>${studentName}</b></p>
-        <p>Итоговый балл: <b>${score} из 10</b></p>
-        <p style="color: var(--accent-cyan); font-weight: 600; margin: 10px 0;">Оценка: ${grade}</p>
-        <div id="send-status" style="margin-top: 15px; font-size: 0.9rem; padding: 10px; border-radius: 8px; background: rgba(251, 191, 36, 0.15); color: #fbbf24;">
-          ⏳ Идёт отправка результатов учителю...
-        </div>
-        <button class="quiz-btn" style="margin-top: 15px;" onclick="restartQuiz()">Пройти заново</button>
-      `;
+      // Вывод на экран
+      document.getElementById('submit-btn').style.display = 'none';
+      document.getElementById('student-card').style.display = 'none';
+      
+      const resultCard = document.getElementById('result-card');
+      resultCard.style.display = 'block';
+      
+      document.getElementById('res-student').textContent = `Ученик: ${nameInput}`;
+      document.getElementById('res-score').textContent = `Итоговый балл: ${score} из 10`;
+      document.getElementById('res-grade').textContent = `Оценка: ${grade}`;
 
-      sendResultToEmail(grade);
-    }
-
-    function sendResultToEmail(grade) {
       const statusDiv = document.getElementById('send-status');
+      statusDiv.innerHTML = "⏳ Идёт отправка результатов учителю...";
+      statusDiv.style.background = "rgba(251, 191, 36, 0.15)";
+      statusDiv.style.color = "#fbbf24";
 
+      // Отправка на почту учителю
       fetch(formspreeLink, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ "Ученик": studentName, "Тема": "§ 14. Металлургия РК", "Балл": `${score} из 10`, "Оценка": grade })
+        body: JSON.stringify({
+          "Ученик": nameInput,
+          "Тема": "§ 14. Металлургия РК (Самостоятельная)",
+          "Набранный балл": `${score} из 10`,
+          "Оценка": grade
+        })
       })
       .then(res => {
         if (res.ok) {
-          statusDiv.innerHTML = "✅ Результаты успешно отправлены учителю!";
-          statusDiv.style.background = "rgba(34, 197, 94, 0.15)"; statusDiv.style.color = "#86efac";
-        } else { throw new Error('Network error'); }
+          statusDiv.innerHTML = "✅ Результаты успешно отправлены учителю на почту!";
+          statusDiv.style.background = "rgba(34, 197, 94, 0.15)";
+          statusDiv.style.color = "#86efac";
+        } else {
+          throw new Error('Network error');
+        }
       })
       .catch(err => {
         statusDiv.innerHTML = "❌ Ошибка при отправке результатов.";
-        statusDiv.style.background = "rgba(239, 68, 68, 0.15)"; statusDiv.style.color = "#fca5a5";
+        statusDiv.style.background = "rgba(239, 68, 68, 0.15)";
+        statusDiv.style.color = "#fca5a5";
       });
-    }
 
-    function restartQuiz() {
-      document.getElementById('quiz-result').style.display = 'none';
-      document.getElementById('start-screen').style.display = 'block';
-      document.getElementById('student-name').value = "";
+      // Плавная прокрутка к результатам
+      resultCard.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>

@@ -33,7 +33,6 @@
       min-height: 100vh;
       color: var(--text-main);
       background-color: var(--geo-deep);
-      /* Топографический фон с изогипсами и картографической сеткой */
       background-image: 
         radial-gradient(circle at 15% 20%, rgba(20, 184, 166, 0.16) 0%, transparent 45%),
         radial-gradient(circle at 85% 75%, rgba(56, 189, 248, 0.14) 0%, transparent 45%),
@@ -104,7 +103,6 @@
       border-radius: 16px;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
       margin-bottom: 22px;
-      position: relative;
     }
 
     .card-title {
@@ -144,7 +142,6 @@
       box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
     }
 
-    /* Таблица Задания 1 */
     .matching-table {
       width: 100%;
       border-collapse: separate;
@@ -181,7 +178,6 @@
       width: 55%;
     }
 
-    /* Выпадающие меню */
     .custom-select {
       width: 100%;
       padding: 10px 12px;
@@ -198,7 +194,6 @@
       border-color: var(--accent-teal);
     }
 
-    /* Задание 2: список с пропусками */
     .fill-gap-list {
       list-style: none;
     }
@@ -249,7 +244,6 @@
       transform: translateY(-1px);
     }
 
-    /* Подсветка ответов */
     .correct-field {
       border-color: #22c55e !important;
       background: rgba(34, 197, 94, 0.18) !important;
@@ -278,7 +272,7 @@
       <div class="coordinates-bar">51°08' N, 71°26' E • Сарыарка | Рудный Алтай | Каратау</div>
     </header>
 
-    <!-- Карточка ученика -->
+    <!-- Поле имени -->
     <div class="card" id="student-card">
       <div class="card-title">👤 Поле исследователя</div>
       <p class="card-desc">Введите ваши имя и фамилию перед началом практической работы.</p>
@@ -377,9 +371,9 @@
           1. Главным районом полиметаллической промышленности (свинец, цинк) в Казахстане является 
           <select class="inline-select task2-select" data-title="Пункт 1 (Район полиметаллов)" data-correct="Рудный" data-correct-desc="Рудный">
             <option value="">[выберите район]</option>
-            <option value="Рудный">Рудный</option>
             <option value="Южный">Южный</option>
             <option value="Монгольский">Монгольский</option>
+            <option value="Рудный">Рудный</option>
             <option value="Казахский">Казахский</option>
           </select> 
           Алтай.
@@ -389,9 +383,9 @@
           2. Крупнейшие месторождения меди сосредоточены в Центральном Казахстане, среди них — Жезказганское, Саяк и 
           <select class="inline-select task2-select" data-title="Пункт 2 (Месторождение меди)" data-correct="Конырат" data-correct-desc="Конырат">
             <option value="">[выберите месторождение]</option>
+            <option value="Соколовское">Соколовское</option>
             <option value="Конырат">Конырат</option>
             <option value="Лисаковское">Лисаковское</option>
-            <option value="Соколовское">Соколовское</option>
             <option value="Каратауское">Каратауское</option>
           </select>.
         </li>
@@ -400,10 +394,10 @@
           3. Свинцовый комбинат, перерабатывающий руду из Каратауского хребта, находится в городе 
           <select class="inline-select task2-select" data-title="Пункт 3 (Город свинцового завода)" data-correct="Шымкент" data-correct-desc="Шымкент">
             <option value="">[выберите город]</option>
-            <option value="Шымкент">Шымкент</option>
             <option value="Темиртау">Темиртау</option>
             <option value="Павлодар">Павлодар</option>
             <option value="Актобе">Актобе</option>
+            <option value="Шымкент">Шымкент</option>
           </select>.
         </li>
 
@@ -411,10 +405,10 @@
           4. Заводы по выплавке легких цветных металлов (алюминий, титан) при размещении всегда тяготеют к источникам дешевой 
           <select class="inline-select task2-select" data-title="Пункт 4 (Фактор размещения)" data-correct="электроэнергии" data-correct-desc="электроэнергии">
             <option value="">[выберите фактор]</option>
-            <option value="электроэнергии">электроэнергии</option>
-            <option value="рабочей силы">рабочей силы</option>
-            <option value="потребителя">потребителя</option>
             <option value="водных ресурсов">водных ресурсов</option>
+            <option value="рабочей силы">рабочей силы</option>
+            <option value="электроэнергии">электроэнергии</option>
+            <option value="потребителя">потребителя</option>
           </select>.
         </li>
 
@@ -422,8 +416,8 @@
           5. Завод по получению глинозема (сырья для алюминия) находится в городе 
           <select class="inline-select task2-select" data-title="Пункт 5 (Город глинозема)" data-correct="Павлодар" data-correct-desc="Павлодар">
             <option value="">[выберите город]</option>
-            <option value="Павлодар">Павлодар</option>
             <option value="Усть-Каменогорск">Усть-Каменогорск</option>
+            <option value="Павлодар">Павлодар</option>
             <option value="Балхаш">Балхаш</option>
             <option value="Костанай">Костанай</option>
           </select>.
@@ -446,6 +440,28 @@
   <script>
     const formspreeLink = "https://formspree.io/f/xyeewanz";
 
+    // Функция перемешивания вариантов ответов внутри списков для каждого ученика
+    function randomizeAllSelectOptions() {
+      document.querySelectorAll('.task1-select, .task2-select').forEach(select => {
+        const placeholder = select.options[0];
+        const options = Array.from(select.options).slice(1);
+
+        // Перемешивание по Фишеру — Йетсу
+        for (let i = options.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [options[i], options[j]] = [options[j], options[i]];
+        }
+
+        select.innerHTML = '';
+        select.appendChild(placeholder);
+        options.forEach(opt => select.appendChild(opt));
+      });
+    }
+
+    // Запуск рандомизации вариантов при открытии страницы
+    document.addEventListener('DOMContentLoaded', randomizeAllSelectOptions);
+    randomizeAllSelectOptions();
+
     function checkAllAnswers() {
       const nameInput = document.getElementById('student-name').value.trim();
       if (!nameInput) {
@@ -459,7 +475,7 @@
       const task1Selects = document.querySelectorAll('.task1-select');
       const task2Selects = document.querySelectorAll('.task2-select');
 
-      // Проверка Задания 1
+      // Проверка Задания 1[cite: 6]
       task1Selects.forEach(select => {
         select.disabled = true;
         const chosenText = select.options[select.selectedIndex]?.text || "Не ответил";
@@ -472,7 +488,7 @@
         }
       });
 
-      // Проверка Задания 2
+      // Проверка Задания 2[cite: 6]
       task2Selects.forEach(select => {
         select.disabled = true;
         const chosenVal = select.value || "Не выбрано";
@@ -485,7 +501,7 @@
         }
       });
 
-      // Шкала оценивания по КСП
+      // Критерии оценивания по КСП[cite: 6]
       let grade = "";
       if (score >= 9) {
         grade = "«Отлично» (9–10 баллов)";
@@ -516,7 +532,7 @@
       statusDiv.style.background = "rgba(245, 158, 11, 0.15)";
       statusDiv.style.color = "#fbbf24";
 
-      // Отправка подробного отчета учителю
+      // Отправка подробного отчета учителю на почту[cite: 6]
       fetch(formspreeLink, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

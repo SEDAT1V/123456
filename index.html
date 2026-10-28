@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>§ 14. Центры добычи и переработки минеральных ресурсов</title>
+  <title>§ 14. Центры добычи и переработки минеральных ресурсов | География 9 класс</title>
 
   <style>
     :root {
-      --bg-dark: #090d16;
-      --card-bg: rgba(18, 25, 44, 0.9);
-      --card-border: rgba(255, 255, 255, 0.1);
+      --geo-deep: #061118;
+      --geo-card: rgba(11, 24, 34, 0.88);
+      --geo-border: rgba(56, 189, 248, 0.18);
+      --accent-teal: #14b8a6;
       --accent-cyan: #38bdf8;
-      --accent-indigo: #818cf8;
-      --text-main: #f1f5f9;
+      --accent-gold: #f59e0b;
+      --accent-copper: #fb923c;
+      --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
 
@@ -21,6 +23,8 @@
       margin: 0; 
       padding: 0; 
       -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
       user-select: none;
     }
 
@@ -28,17 +32,22 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       min-height: 100vh;
       color: var(--text-main);
-      background-color: var(--bg-dark);
+      background-color: var(--geo-deep);
+      /* Топографический фон с изогипсами и картографической сеткой */
       background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
+        radial-gradient(circle at 15% 20%, rgba(20, 184, 166, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(56, 189, 248, 0.14) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath d='M0 80 Q100 20 200 80 T400 80 M0 140 Q120 70 200 130 T400 130 M0 200 Q90 150 200 190 T400 190 M0 260 Q110 220 200 250 T400 250 M0 320 Q80 280 200 310 T400 310 M0 380 Q130 340 200 370 T400 370' stroke='rgba(56,189,248,0.06)' fill='none' stroke-width='1.5'/%3E%3Cpath d='M80 0 Q140 100 80 200 T80 400 M160 0 Q220 120 170 200 T160 400 M240 0 Q310 90 250 200 T240 400 M320 0 Q370 110 330 200 T320 400' stroke='rgba(20,184,166,0.05)' fill='none' stroke-width='1.2'/%3E%3C/svg%3E");
+      background-size: auto, auto, 50px 50px, 50px 50px, 400px 400px;
       background-attachment: fixed;
       line-height: 1.6;
       padding: 30px 15px;
     }
 
     .container { 
-      max-width: 800px; 
+      max-width: 820px; 
       margin: 0 auto; 
     }
     
@@ -47,23 +56,30 @@
       margin-bottom: 25px; 
     }
 
-    .badge {
-      display: inline-block;
-      padding: 4px 14px;
+    .geo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--accent-cyan);
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(14, 165, 233, 0.12);
+      border: 1px solid var(--geo-border);
       border-radius: 20px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: 1.8rem; 
+      font-size: 1.85rem; 
       font-weight: 800; 
       color: #ffffff;
-      margin-bottom: 4px;
+      background: linear-gradient(135deg, #ffffff 50%, var(--accent-cyan));
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
     }
 
     .subtitle { 
@@ -71,13 +87,24 @@
       font-size: 0.95rem; 
     }
 
+    .coordinates-bar {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.78rem;
+      color: var(--accent-teal);
+      margin-top: 6px;
+      opacity: 0.85;
+    }
+
     .card {
-      background: var(--card-bg); 
-      border: 1px solid var(--card-border); 
+      background: var(--geo-card); 
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--geo-border); 
       padding: 24px; 
       border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
       margin-bottom: 22px;
+      position: relative;
     }
 
     .card-title {
@@ -102,17 +129,19 @@
       padding: 12px 16px; 
       margin: 10px 0 18px;
       border-radius: 10px; 
-      border: 1px solid var(--card-border);
-      background: rgba(255, 255, 255, 0.08); 
+      border: 1px solid var(--geo-border);
+      background: rgba(255, 255, 255, 0.05); 
       color: #fff;
       font-size: 1rem; 
       outline: none;
       -webkit-user-select: text;
       user-select: text;
+      transition: all 0.2s ease;
     }
     .name-input:focus {
       border-color: var(--accent-cyan);
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(56, 189, 248, 0.08);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
     }
 
     /* Таблица Задания 1 */
@@ -124,8 +153,8 @@
 
     .matching-table th {
       text-align: left;
-      font-size: 0.85rem;
-      color: var(--accent-cyan);
+      font-size: 0.82rem;
+      color: var(--accent-teal);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       padding: 0 12px 6px;
@@ -133,15 +162,15 @@
 
     .matching-table td {
       padding: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .matching-table tr td:first-child {
       border-radius: 10px 0 0 10px;
       border-right: none;
       font-weight: 500;
-      color: #fff;
+      color: #f1f5f9;
       width: 45%;
       font-size: 0.92rem;
     }
@@ -152,23 +181,24 @@
       width: 55%;
     }
 
-    /* Селекты и выпадающие списки */
+    /* Выпадающие меню */
     .custom-select {
       width: 100%;
       padding: 10px 12px;
-      background: #111827;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #091722;
+      border: 1px solid rgba(56, 189, 248, 0.25);
       border-radius: 8px;
       color: var(--text-main);
       font-size: 0.88rem;
       outline: none;
       cursor: pointer;
+      transition: border-color 0.2s ease;
     }
     .custom-select:focus {
-      border-color: var(--accent-cyan);
+      border-color: var(--accent-teal);
     }
 
-    /* Задание 2: текст с пропусками */
+    /* Задание 2: список с пропусками */
     .fill-gap-list {
       list-style: none;
     }
@@ -176,11 +206,11 @@
     .fill-gap-item {
       padding: 14px 16px;
       margin-bottom: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 10px;
       font-size: 0.95rem;
-      line-height: 1.8;
+      line-height: 1.85;
       color: #e2e8f0;
     }
 
@@ -188,7 +218,7 @@
       display: inline-block;
       margin: 0 4px;
       padding: 6px 10px;
-      background: #111827;
+      background: #091722;
       border: 1px solid var(--accent-cyan);
       border-radius: 6px;
       color: var(--accent-cyan);
@@ -201,38 +231,40 @@
     .btn-submit {
       display: block;
       width: 100%;
-      max-width: 340px;
+      max-width: 360px;
       margin: 25px auto 10px;
       padding: 14px 20px;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
-      color: #090d16;
+      background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+      color: #04131d;
       border: none;
       border-radius: 10px;
       font-size: 1rem;
       font-weight: 800;
       cursor: pointer;
-      transition: opacity 0.2s;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(20, 184, 166, 0.25);
     }
     .btn-submit:hover {
-      opacity: 0.9;
+      opacity: 0.92;
+      transform: translateY(-1px);
     }
 
-    /* Статусы и итоги */
-    .result-box {
-      text-align: center;
-      padding: 15px 0;
-    }
-
+    /* Подсветка ответов */
     .correct-field {
       border-color: #22c55e !important;
-      background: rgba(34, 197, 94, 0.15) !important;
+      background: rgba(34, 197, 94, 0.18) !important;
       color: #86efac !important;
     }
 
     .wrong-field {
       border-color: #ef4444 !important;
-      background: rgba(239, 68, 68, 0.15) !important;
+      background: rgba(239, 68, 68, 0.18) !important;
       color: #fca5a5 !important;
+    }
+
+    .result-box {
+      text-align: center;
+      padding: 15px 0;
     }
   </style>
 </head>
@@ -240,22 +272,23 @@
 
   <div class="container">
     <header>
-      <div class="badge">9 класс • Экономическая география</div>
-      <h1>Металлургия Казахстана</h1>
+      <div class="geo-badge">🧭 9 класс • Экономическая география Казахстана</div>
+      <h1>Металлургический комплекс РК</h1>
       <p class="subtitle">§ 14. Центры добычи и переработки минеральных ресурсов</p>
+      <div class="coordinates-bar">51°08' N, 71°26' E • Сарыарка | Рудный Алтай | Каратау</div>
     </header>
 
-    <!-- Форма для ввода данных ученика -->
+    <!-- Карточка ученика -->
     <div class="card" id="student-card">
-      <div class="card-title">👤 Данные ученика</div>
-      <p class="card-desc">Введите имя и фамилию для сохранения результатов работы.</p>
+      <div class="card-title">👤 Поле исследователя</div>
+      <p class="card-desc">Введите ваши имя и фамилию перед началом практической работы.</p>
       <input type="text" id="student-name" class="name-input" placeholder="Имя и Фамилия" autocomplete="off">
     </div>
 
     <!-- Задание 1 -->
     <div class="card">
-      <div class="card-title">⚙️ ЗАДАНИЕ 1. «Стадии черной металлургии» (5 баллов)</div>
-      <p class="card-desc">Соотнесите предприятие или цех с его технологической функцией или производимой продукцией.</p>
+      <div class="card-title">⛏️ ЗАДАНИЕ 1. «Стадии черной металлургии» (5 баллов)</div>
+      <p class="card-desc">Опираясь на Схему 30, соотнесите цех или тип предприятия с его технологическим процессом.</p>
 
       <table class="matching-table">
         <thead>
@@ -268,7 +301,7 @@
           <tr>
             <td>1. Горно-обогатительный комбинат (ГОК)</td>
             <td>
-              <select class="custom-select task1-select" data-correct="В">
+              <select class="custom-select task1-select" data-title="1. ГОК" data-correct="В" data-correct-desc="В. Получение чистого концентрата (метод флотации)">
                 <option value="">-- Выберите определение --</option>
                 <option value="А">А. Плавка стали</option>
                 <option value="Б">Б. Работает исключительно на металлоломе</option>
@@ -281,7 +314,7 @@
           <tr>
             <td>2. Доменный цех</td>
             <td>
-              <select class="custom-select task1-select" data-correct="Д">
+              <select class="custom-select task1-select" data-title="2. Доменный цех" data-correct="Д" data-correct-desc="Д. Плавка чугуна">
                 <option value="">-- Выберите определение --</option>
                 <option value="А">А. Плавка стали</option>
                 <option value="Б">Б. Работает исключительно на металлоломе</option>
@@ -294,7 +327,7 @@
           <tr>
             <td>3. Сталелитейный цех</td>
             <td>
-              <select class="custom-select task1-select" data-correct="А">
+              <select class="custom-select task1-select" data-title="3. Сталелитейный цех" data-correct="А" data-correct-desc="А. Плавка стали">
                 <option value="">-- Выберите определение --</option>
                 <option value="А">А. Плавка стали</option>
                 <option value="Б">Б. Работает исключительно на металлоломе</option>
@@ -307,7 +340,7 @@
           <tr>
             <td>4. Прокатный цех</td>
             <td>
-              <select class="custom-select task1-select" data-correct="Г">
+              <select class="custom-select task1-select" data-title="4. Прокатный цех" data-correct="Г" data-correct-desc="Г. Выпуск готовой продукции (листовой, трубный прокат)">
                 <option value="">-- Выберите определение --</option>
                 <option value="А">А. Плавка стали</option>
                 <option value="Б">Б. Работает исключительно на металлоломе</option>
@@ -320,7 +353,7 @@
           <tr>
             <td>5. Завод передельного цикла</td>
             <td>
-              <select class="custom-select task1-select" data-correct="Б">
+              <select class="custom-select task1-select" data-title="5. Завод передельного цикла" data-correct="Б" data-correct-desc="Б. Работает исключительно на металлоломе">
                 <option value="">-- Выберите определение --</option>
                 <option value="А">А. Плавка стали</option>
                 <option value="Б">Б. Работает исключительно на металлоломе</option>
@@ -337,12 +370,12 @@
     <!-- Задание 2 -->
     <div class="card">
       <div class="card-title">🗺️ ЗАДАНИЕ 2. «География цветных металлов Казахстана» (5 баллов)</div>
-      <p class="card-desc">Нажмите на выпадающие пропуски в тексте и выберите правильный географический объект или термин.</p>
+      <p class="card-desc">Нажмите на выпадающие пропуски в тексте и укажите верный географический объект или фактор.</p>
 
       <ul class="fill-gap-list">
         <li class="fill-gap-item">
           1. Главным районом полиметаллической промышленности (свинец, цинк) в Казахстане является 
-          <select class="inline-select task2-select" data-correct="Рудный">
+          <select class="inline-select task2-select" data-title="Пункт 1 (Район полиметаллов)" data-correct="Рудный" data-correct-desc="Рудный">
             <option value="">[выберите район]</option>
             <option value="Рудный">Рудный</option>
             <option value="Южный">Южный</option>
@@ -354,7 +387,7 @@
 
         <li class="fill-gap-item">
           2. Крупнейшие месторождения меди сосредоточены в Центральном Казахстане, среди них — Жезказганское, Саяк и 
-          <select class="inline-select task2-select" data-correct="Конырат">
+          <select class="inline-select task2-select" data-title="Пункт 2 (Месторождение меди)" data-correct="Конырат" data-correct-desc="Конырат">
             <option value="">[выберите месторождение]</option>
             <option value="Конырат">Конырат</option>
             <option value="Лисаковское">Лисаковское</option>
@@ -365,7 +398,7 @@
 
         <li class="fill-gap-item">
           3. Свинцовый комбинат, перерабатывающий руду из Каратауского хребта, находится в городе 
-          <select class="inline-select task2-select" data-correct="Шымкент">
+          <select class="inline-select task2-select" data-title="Пункт 3 (Город свинцового завода)" data-correct="Шымкент" data-correct-desc="Шымкент">
             <option value="">[выберите город]</option>
             <option value="Шымкент">Шымкент</option>
             <option value="Темиртау">Темиртау</option>
@@ -376,7 +409,7 @@
 
         <li class="fill-gap-item">
           4. Заводы по выплавке легких цветных металлов (алюминий, титан) при размещении всегда тяготеют к источникам дешевой 
-          <select class="inline-select task2-select" data-correct="электроэнергии">
+          <select class="inline-select task2-select" data-title="Пункт 4 (Фактор размещения)" data-correct="электроэнергии" data-correct-desc="электроэнергии">
             <option value="">[выберите фактор]</option>
             <option value="электроэнергии">электроэнергии</option>
             <option value="рабочей силы">рабочей силы</option>
@@ -387,7 +420,7 @@
 
         <li class="fill-gap-item">
           5. Завод по получению глинозема (сырья для алюминия) находится в городе 
-          <select class="inline-select task2-select" data-correct="Павлодар">
+          <select class="inline-select task2-select" data-title="Пункт 5 (Город глинозема)" data-correct="Павлодар" data-correct-desc="Павлодар">
             <option value="">[выберите город]</option>
             <option value="Павлодар">Павлодар</option>
             <option value="Усть-Каменогорск">Усть-Каменогорск</option>
@@ -398,16 +431,15 @@
       </ul>
     </div>
 
-    <!-- Кнопка проверки -->
-    <button class="btn-submit" id="submit-btn" onclick="checkAllAnswers()">Проверить и отправить результаты 📨</button>
+    <button class="btn-submit" id="submit-btn" onclick="checkAllAnswers()">Завершить и передать результаты 🧭</button>
 
-    <!-- Итоговая карточка -->
+    <!-- Итоговый экран -->
     <div class="card result-box" id="result-card" style="display: none;">
-      <h3 id="res-title" style="font-size: 1.4rem; color: #fff; margin-bottom: 8px;">Результаты работы</h3>
-      <p id="res-student" style="color: #fff; font-size: 1.1rem; margin-bottom: 4px;"></p>
-      <p id="res-score" style="font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan); margin: 6px 0;"></p>
+      <h3 style="font-size: 1.45rem; color: #fff; margin-bottom: 8px;">Картографический отчёт сформирован</h3>
+      <p id="res-student" style="color: #fff; font-size: 1.15rem; margin-bottom: 4px;"></p>
+      <p id="res-score" style="font-size: 1.3rem; font-weight: 800; color: var(--accent-cyan); margin: 6px 0;"></p>
       <p id="res-grade" style="color: #cbd5e1; font-weight: 600; margin-bottom: 15px;"></p>
-      <div id="send-status" style="padding: 10px; border-radius: 8px; font-size: 0.9rem;"></div>
+      <div id="send-status" style="padding: 12px; border-radius: 8px; font-size: 0.92rem;"></div>
     </div>
   </div>
 
@@ -417,34 +449,39 @@
     function checkAllAnswers() {
       const nameInput = document.getElementById('student-name').value.trim();
       if (!nameInput) {
-        alert("Пожалуйста, укажите ваши имя и фамилию в начале страницы!");
+        alert("Пожалуйста, введите ваше имя и фамилию!");
         document.getElementById('student-name').focus();
         return;
       }
 
       let score = 0;
+      let mistakes = [];
       const task1Selects = document.querySelectorAll('.task1-select');
       const task2Selects = document.querySelectorAll('.task2-select');
 
-      // Проверка Задания 1 (5 баллов)
+      // Проверка Задания 1
       task1Selects.forEach(select => {
         select.disabled = true;
+        const chosenText = select.options[select.selectedIndex]?.text || "Не ответил";
         if (select.value === select.dataset.correct) {
           score++;
           select.classList.add('correct-field');
         } else {
           select.classList.add('wrong-field');
+          mistakes.push(`[Задание 1] ${select.dataset.title} -> Выбрано: "${chosenText}" | Правильно: "${select.dataset.correctDesc}"`);
         }
       });
 
-      // Проверка Задания 2 (5 баллов)
+      // Проверка Задания 2
       task2Selects.forEach(select => {
         select.disabled = true;
+        const chosenVal = select.value || "Не выбрано";
         if (select.value === select.dataset.correct) {
           score++;
           select.classList.add('correct-field');
         } else {
           select.classList.add('wrong-field');
+          mistakes.push(`[Задание 2] ${select.dataset.title} -> Выбрано: "${chosenVal}" | Правильно: "${select.dataset.correctDesc}"`);
         }
       });
 
@@ -460,7 +497,10 @@
         grade = "«Неудовлетворительно» (< 5 баллов)";
       }
 
-      // Вывод на экран
+      const mistakesReport = mistakes.length > 0 
+        ? mistakes.join("\n\n") 
+        : "Ошибок нет (100% результат)";
+
       document.getElementById('submit-btn').style.display = 'none';
       document.getElementById('student-card').style.display = 'none';
       
@@ -472,26 +512,27 @@
       document.getElementById('res-grade').textContent = `Оценка: ${grade}`;
 
       const statusDiv = document.getElementById('send-status');
-      statusDiv.innerHTML = "⏳ Идёт отправка результатов учителю...";
-      statusDiv.style.background = "rgba(251, 191, 36, 0.15)";
+      statusDiv.innerHTML = "⏳ Идёт передача данных учителю...";
+      statusDiv.style.background = "rgba(245, 158, 11, 0.15)";
       statusDiv.style.color = "#fbbf24";
 
-      // Отправка на почту учителю
+      // Отправка подробного отчета учителю
       fetch(formspreeLink, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           "Ученик": nameInput,
-          "Тема": "§ 14. Металлургия РК (Самостоятельная)",
-          "Набранный балл": `${score} из 10`,
-          "Оценка": grade
+          "Тема": "§ 14. Металлургия РК (9 класс)",
+          "Балл": `${score} из 10`,
+          "Оценка": grade,
+          "Ошибки ученика": mistakesReport
         })
       })
       .then(res => {
         if (res.ok) {
-          statusDiv.innerHTML = "✅ Результаты успешно отправлены учителю на почту!";
-          statusDiv.style.background = "rgba(34, 197, 94, 0.15)";
-          statusDiv.style.color = "#86efac";
+          statusDiv.innerHTML = "✅ Результаты и подробный отчёт доставлены учителю!";
+          statusDiv.style.background = "rgba(20, 184, 166, 0.15)";
+          statusDiv.style.color = "#5eead4";
         } else {
           throw new Error('Network error');
         }
@@ -502,7 +543,6 @@
         statusDiv.style.color = "#fca5a5";
       });
 
-      // Плавная прокрутка к результатам
       resultCard.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
